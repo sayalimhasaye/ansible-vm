@@ -1,0 +1,18 @@
+start-vm.yml
+---
+- name: Start OpenShift VM
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Start VM
+      kubernetes.core.k8s:
+        state: patched
+        definition:
+          apiVersion: kubevirt.io/v1
+          kind: VirtualMachine
+          metadata:
+            name: test-vm
+            namespace: vm-project
+          spec:
+            running: true
