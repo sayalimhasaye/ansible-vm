@@ -1,5 +1,3 @@
-start-vm.yml
----
 - name: Start OpenShift VM
   hosts: localhost
   gather_facts: false
